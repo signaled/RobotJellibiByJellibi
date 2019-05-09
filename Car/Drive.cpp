@@ -38,11 +38,13 @@ void Drive::Back()
 void Drive::Left()
 {
     _leftWheel.Gain();
+    _rightWheel.Normal();
 }
 
 void Drive::Right()
 {
     _rightWheel.Gain();
+    _leftWheel.Normal();
 }
 
 void Drive::Nothing()
@@ -50,5 +52,3 @@ void Drive::Nothing()
     _leftWheel.Normal();
     _rightWheel.Normal();
 }
-
-
