@@ -5,7 +5,7 @@ Wheel::Wheel()
 , _dirPin(0)
 , _bRightWheel(true)
 , _nPwm(0)
-, _bForward(1)
+, _bForward(true)
 {
 }
 
@@ -16,6 +16,7 @@ void Wheel::Init(int pwmPin, int dirPin, bool bRightWheel)
     _bRightWheel = bRightWheel;
     pinMode(_pwmPin, OUTPUT);
     pinMode(_dirPin, OUTPUT);
+    
     Stop();
 }
 
@@ -60,13 +61,18 @@ void Wheel::Stop()
 void Wheel::Up()
 {
     if (_bForward) {
-        _nPwm += _STEP_PWM_;
+        if (_nPwm < _MIN_PWM_) {
+          _nPwm = _MIN_PWM_;
+        } else {
+          _nPwm += _STEP_PWM_;
+        }
         if (_nPwm > _MAX_PWM_) {
             _nPwm = _MAX_PWM_;
         }
     } else {
         _nPwm -= _STEP_PWM_;
         if (_nPwm < _MIN_PWM_){
+            _nPwm = _STOP_PWM_;
             _bForward = true;
         }
     }
@@ -77,11 +83,15 @@ void Wheel::Down()
     if (_bForward) {
         _nPwm -= _STEP_PWM_;
         if (_nPwm < _MIN_PWM_) {
-            _nPwm = _MIN_PWM_;
+            _nPwm = _STOP_PWM_;
             _bForward = false;
         }
     } else {
-        _nPwm += _STEP_PWM_;
+        if (_nPwm < _MIN_PWM_){
+          _nPwm = _MIN_PWM_;
+        } else {
+          _nPwm += _STEP_PWM_;
+        }
         if (_nPwm > _MAX_PWM_) {
             _nPwm = _MAX_PWM_;
         }
@@ -107,4 +117,3 @@ void Wheel::Normal()
     }
     Apply();
 }
-

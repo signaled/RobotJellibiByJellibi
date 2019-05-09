@@ -9,7 +9,7 @@ private:
   int _dirPin;
   bool _bRightWheel;
   const int _STOP_PWM_ = 0;
-  const int32_t _MIN_PWM_ = 30;
+  const int32_t _MIN_PWM_ = 40;
   const int32_t _STEP_PWM_ = 10;
   const int32_t _MAX_PWM_ = 180;
 
