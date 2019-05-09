@@ -1,7 +1,7 @@
 #include "ServoAction.h"
 ServoAction::ServoAction()
 : _nGripAngle(90)
-, _nLiftAngle(0)
+, _nLiftAngle(90)
 {
 }
 
