@@ -1,7 +1,5 @@
 #include <JellibiPin.h>
 
-#include <JellibiButton.h>
-
 #define HC06BAUDRATE 9600
 
 JellibiPin _p;
@@ -55,15 +53,15 @@ void loop() {
   if (LOW ==digitalRead(_p.Button(R))) {
     bButton |= 0x08;
   }
-  if (BitCount(bButton) > 0)
-    Serial.print("["+String(BitCount(bButton))+"]\n");
+  //if (BitCount(bButton) > 0)
+    //Serial.print("["+String(BitCount(bButton))+"]\n");
   if (BitCount(bButton) >= 2 && (_lSleep < lTime)) {
     if (_bDrive) {
       _bDrive = false;
     } else {
       _bDrive = true;
     }
-    _lSleep = lTime + 1000; 
+    _lSleep = lTime + 300; 
   }
   UpdateLed((lTime < _lSleep)?true:false);
   if ((lTime > _lSleep) && (BitCount(bButton)==1)) {
