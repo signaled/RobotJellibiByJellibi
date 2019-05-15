@@ -2,7 +2,7 @@
 #define __ACTION_RECORDER_H__
 #include <arduino.h>
 
-#define _MAX_CMD_ 500
+#define _MAX_CMD_ 300
 
 class ActionRecorder
 {

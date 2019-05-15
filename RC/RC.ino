@@ -62,6 +62,23 @@ void loop() {
       _bDrive = true;
     }
     _lSleep = lTime + 300; 
+    if (_bDrive) {
+      tone(3, 262);
+      delay(30);
+      tone(3, 294);
+      delay(30);
+      tone(3, 330);
+      delay(250);
+      noTone(3);
+    } else {
+      tone(3, 330);
+      delay(30);
+      tone(3, 294);
+      delay(30);
+      tone(3, 262);
+      delay(250);
+      noTone(3);     
+    }
   }
   UpdateLed((lTime < _lSleep)?true:false);
   if ((lTime > _lSleep) && (BitCount(bButton)==1)) {
