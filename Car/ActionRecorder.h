@@ -1,6 +1,6 @@
 #ifndef __ACTION_RECORDER_H__
 #define __ACTION_RECORDER_H__
-#include <arduino.h>
+#include <Arduino.h>
 
 #define _MAX_CMD_ 300
 

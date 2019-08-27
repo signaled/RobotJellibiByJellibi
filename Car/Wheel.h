@@ -1,6 +1,6 @@
 #ifndef __WHEEL_H__
 #define __WHEEL_H__
-#include <arduino.h>
+#include <Arduino.h>
 
 class Wheel
 {
